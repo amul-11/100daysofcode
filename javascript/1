@@ -1,0 +1,12 @@
+
+const para = "wE have guide services available for tourists who want to get a in depth knowledge from our experts in your own preferred language. available languages are hindi, english, marathi, french. meuseum you can also explore the meusuem of sanchi which contains ancient artifacts to give you a glance in the past for a entry fees of RS50 in the same timings";
+const vow = ['a','e','i','o','u'];
+
+let count = 0;
+for (let x of para) {
+  console.log(x);
+  if (vow.includes(x.toLowerCase())){
+      count +=1
+  }
+}
+document.write(count);
