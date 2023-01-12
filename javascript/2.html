@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(99, 4, 223);
+        }
+        .clock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: #eb0800e1;
+            font-size: 60px;
+            letter-spacing: 7px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="display" class="clock" ></div>
+</body>
+
+<script>
+    var x = prompt("enter minutes for timer")
+    var h = Math.floor(x / 60);
+    var m = x % 60;
+    var s = 0;
+    var hd, sd, md; 
+    function Timeleft(){
+        if (m == 0 && s == 0 && h == 0){
+            document.getElementById("display").innerText = "time up";
+            return;
+        }
+        if (m == 0 && h !=  0) {
+            h -= 1;
+            m = 60;
+        }
+        if (s == 0 && m !=  0) {
+            m -= 1;
+            s = 60
+        }
+        else
+        {
+            s -= 1;
+        }
+        hd = (h < 10) ? "0" + h : h;
+        md = (m < 10) ? "0" + m : m;
+        sd = (s < 10) ? "0" + s : s;
+        
+        var time = hd + ":" + md + ":" + sd + " ";
+        document.getElementById("display").innerText = time;
+        document.getElementById("display").textContent = time;
+        
+        setTimeout(Timeleft, 1000);
+    }
+    Timeleft();
+</script>
+
+</html>
