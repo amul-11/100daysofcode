@@ -1,0 +1,24 @@
+const array = [1,11,7,23,08,27,4,38,13,9];
+  var high = array[0];
+  var low = array[0];
+  var sum = 0;
+  for (let x of array) {
+    if (low > x){
+        low = x;
+    }
+    if (x > high ){
+        high = x;
+    }
+    sum += x;
+  }
+
+  console.log("original aaray",array)
+  console.log("highest value",high);
+  console.log("lowest value",low);
+  console.log("sum of all values",sum);
+  
+  const rev = array.reverse() ;
+  console.log("reversed array",rev);
+  
+  array.sort(function(a, b){return a - b});
+  console.log("sorted array",array);
