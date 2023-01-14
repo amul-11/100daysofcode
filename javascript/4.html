@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            background-color: aqua;
+            border: 5px;
+            font-size: 22px;
+            font-family: cursive;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <p id="1"></p>
+    <hr>
+    <p id="2"></p>
+    
+</body>
+<script>
+// takes input
+while (true){
+    var x = parseInt(prompt('Enter a positive integer: '));
+    console.log(x);
+    if (x < 1){
+        alert(`${x} not acceptable.`);
+    }
+    else{
+        break
+    }
+}
+
+console.log(x);
+//checks prime
+let prime = true;
+if (x == 1) {
+    document.getElementById("1").innerHTML = "1 is neither prime nor composite number. Also have the factorial value as itself";
+}
+else {
+    for (let i = 2; i < x; i++) {
+        if (x % i == 0) {
+            prime = false;
+            break;
+        }
+    }
+
+    if (prime) {
+        document.getElementById("1").innerHTML=`${x} is a prime number`;
+    } else {
+        document.getElementById("1").innerHTML=`${x} is not a prime number but a composite number`;
+    }
+}
+// gives factorial if composite
+let fact = 1;
+for (i = 1; i <= x; i++){
+    fact *= i;
+}
+document.getElementById("2").innerHTML=`The factorial of ${x} is ${fact}.`;
+</script>
+</html>
