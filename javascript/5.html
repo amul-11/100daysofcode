@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+          position: relative;
+        }
+        img{
+            position: absolute;
+            width: 700px;
+            z-index: 3;
+            opacity: 90% ;
+        }
+        .diva{
+            position: absolute;
+            background-color: rgba(3, 3, 3, 0.802);
+            z-index: 4;
+            width: 700px; 
+            height: 400px;
+            left: 0px;
+            top: 0px;
+            transition-property: background-color;
+            transition-duration: 2s;
+        }
+        .diva:hover{
+            background-color: rgba(240, 248, 255, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="id" src="/IMG_20220721_192612.jpg">
+        <div class="diva" onmouseover="del()"></div>
+    </div>  
+
+<script>
+    function del(){
+        document.getElementById("id").style.opacity="100%";
+    }
+</script>    
+</body>
+</html>
