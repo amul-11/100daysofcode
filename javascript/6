@@ -1,0 +1,25 @@
+ let recursebsearch = function (arr, x, low, high) {
+            if (low > high) return false;
+            let mid=Math.floor((low + high)/2);
+            if (arr[mid]===x) return true;
+ 
+            if(arr[mid] > x)
+                return recursebsearch(arr, x, low, mid-1);
+            else
+                return recursebsearch(arr, x, mid+1, high);
+        }
+
+        const arr = [1,3,5,7,8,9,11,18,21,23,27];
+        let x = 18;
+        console.time("func1");
+        if (recursebsearch(arr, x, 0, arr.length-1))
+            document.write("Element found!<br>");
+        else document.write("Element not found!<br>");
+        console.timeEnd("func1");
+        x = 26;
+
+        console.time("func2");
+        if (recursebsearch(arr, x, 0, arr.length-1))
+            document.write("Element found!<br>");
+        else document.write("Element not found!<br>");
+        console.timeEnd("func2");
