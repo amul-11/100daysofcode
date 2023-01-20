@@ -1,0 +1,7 @@
+var lengthOfLastWord = function(s) {
+    const c = s.trimEnd().split(' ');
+    return c[c.length-1].length;
+};
+// this code tells about the difference in efficiency of the program 
+//always use const to create referance when the data type is supposed to be a array
+// try to complete commands in one statement
