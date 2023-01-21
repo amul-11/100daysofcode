@@ -1,0 +1,18 @@
+const a = [1,2,3,3,4,2,4];
+const b = [];
+var count = 0;
+for (let i = 0; i < a.length; i++) {
+        for (let v = 0; v < a.length; v++) {
+            if(v==i){continue;}
+            if(a[v]==a[i]){
+                console.log("element pushed",a[i]);
+                b.push(a[i]);
+            }
+        }
+}
+console.log(a);
+console.log(b);
+for (let i = 0; i < a.length; i++) {
+    if(!b.includes(a[i])){count=a[i];}
+}
+console.log(count);
