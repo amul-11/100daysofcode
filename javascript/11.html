@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+            background-color: #D94A38;
+            width: 200px;
+            height: 20px;
+            border: 5px solid;
+            margin: 10px;
+            border-color: rgb(26, 161, 195);
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        span {
+            background-color: #d513e7;
+            width: 90px;
+            height: 20px;
+            border: 5px solid;
+            margin: 10px;
+            border-color: rgb(43, 26, 195);
+        }
+    </style>
+</head>
+
+<body style="background-color: antiquewhite;">
+    <p> choosing game choose the correct option</p>
+    <div id="1" onClick="checkid(this.id)">choose me</div>
+    <div id="2" onClick="checkid(this.id)">choose me</div>
+    <div id="3" onClick="checkid(this.id)">choose me</div>
+    <div id="4" onClick="checkid(this.id)">choose me</div>
+    <div id="5" onClick="checkid(this.id)">choose me</div>
+    <div id="6" onClick="checkid(this.id)">choose me</div>
+    <div id="7" onClick="checkid(this.id)">choose me</div>
+    <div id="8" onClick="checkid(this.id)">choose me</div>
+    <div id="9" onClick="checkid(this.id)">choose me</div>
+    <div id="10" onClick="checkid(this.id)">choose me</div>
+    <div id="11" onClick="checkid(this.id)">choose me</div>
+    <div id="12" onClick="checkid(this.id)">choose me</div>
+    <div id="13" onClick="checkid(this.id)">choose me</div>
+    <div id="14" onClick="checkid(this.id)">choose me</div>
+    <div id="15" onClick="checkid(this.id)">choose me</div>
+    <div id="16" onClick="checkid(this.id)">choose me</div>
+    <div id="17" onClick="checkid(this.id)">choose me</div>
+    <div id="18" onClick="checkid(this.id)">choose me</div>
+    <div id="19" onClick="checkid(this.id)">choose me</div>
+    <div id="20" onClick="checkid(this.id)">choose me</div>
+    <div id="21" onClick="checkid(this.id)">choose me</div>
+    <div id="22" onClick="checkid(this.id)">choose me</div>
+    <div id="23" onClick="checkid(this.id)">choose me</div>
+    <div id="24" onClick="checkid(this.id)">choose me</div>
+    <div id="25" onClick="checkid(this.id)">choose me</div>
+    <div id="26" onClick="checkid(this.id)">choose me</div>
+    <div id="27" onClick="checkid(this.id)">choose me</div>
+    <div id="28" onClick="checkid(this.id)">choose me</div>
+    <div id="29" onClick="checkid(this.id)">choose me</div>
+    <div id="30" onClick="checkid(this.id)">choose me</div>
+    <br><br><br><hr>
+    <p id="edge"></p>
+    <img id="img" src="/codestreak/download.png" style="display: none;">
+    <script>
+        let x =Math.floor(Math.random() * 100);
+        x=x%30;
+        //line below is to facilitate testing not to be included in original game
+        document.getElementById("edge").innerHTML=x;
+        function checkid(chosen_id)
+        {
+            if(chosen_id == x){
+                document.getElementById("img").style.display="block";
+            }
+            else{alert("tryagain");}
+        }
+
+    </script>
+</body>
+
+</html>
