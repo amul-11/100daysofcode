@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .square {
+            width: 30%;
+            padding-bottom: 30%;
+            float: left;
+            margin: 1.66%;
+        } 
+        .slidecontainer {
+          width: 80%;
+        }
+        .slider {
+          width: 80%;
+          height: 25px;
+          background: #d42020;
+          outline: none;
+          opacity: 1;
+          transition: opacity .2s;
+        }
+        .slider:hover {
+          opacity: 1;
+        }
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 25px;
+          height: 25px;
+          background: #0020f2;
+          cursor: pointer;
+        }
+        .slider::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          background: #a600ff;
+          cursor: pointer;
+        }
+        .element {
+        border: 6px solid rgba(230, 5, 5, 1);
+        border-radius: 4px;
+        background-color: rgba(255, 231, 92, 0.5);
+        }
+        .text {
+        font: normal normal 24px/1.1 "Souci Sans";
+        letter-spacing: 4px;
+        }
+        </style>
+</head>
+<body>
+    <h1> guess the colour below</h1>
+    <div id="container">
+		<div class="square" id="check" style="background-color: #00000000;" ></div>
+    </div>
+    <div class="slidecontainer">
+        <input type="range" min="0" max="256" value="50" class="slider" id="r">R: <span id="demor"></span>
+        <input type="range" min="0" max="256" value="50" class="slider" id="g">G: <span id="demog"></span>
+        <input type="range" min="0" max="256" value="50" class="slider" id="b">B: <span id="demob"></span>
+        
+    </div>
+    <p class="element text" onclick="makeColor()">start</p>
+    <p class="element text" onclick="submit()">submit</p>
+    <img id="img" src="/codestreak/download.png" style="display: none;">
+    <script>
+    var r = document.getElementById("r");
+    var g = document.getElementById("g");
+    var b = document.getElementById("b");
+    var outputr = document.getElementById("demor");
+    var outputg = document.getElementById("demog");
+    var outputb = document.getElementById("demob");
+
+    outputr.innerHTML = r.value;
+    outputg.innerHTML = g.value;
+    outputb.innerHTML = b.value;
+    
+    r.oninput = function() {
+    outputr.innerHTML = this.value;
+    }
+    g.oninput = function() {
+    outputg.innerHTML = this.value;
+    }
+    b.oninput = function() {
+    outputb.innerHTML = this.value;
+    }
+    var rr;
+    function makeColor() {
+        rr = Math.floor(Math.random() * 256);
+        gr = Math.floor(Math.random() * 256);
+        br = Math.floor(Math.random() * 256);
+        var colord ="rgb(" + rr + ", " + gr + ", " + br + ")";
+        document.getElementById("check").style.backgroundColor=colord;
+    }
+    function submit(){
+        if(r.value == rr && b.value == br && g.value == gr){
+            document.getElementById("img").style.display="block";
+        }
+        else{
+            var cr,cg,cb;
+            cr=100-((Math.abs(rr-r.value))/256)*100
+            cg=100-((Math.abs(gr-g.value))/256)*100
+            cb=100-((Math.abs(br-b.value))/256)*100
+            alert(`try again your rgb values are ${cr}%,${cg}%,${cb}% correct `)
+        }
+    }
+    </script>
+</body>
+</html>
