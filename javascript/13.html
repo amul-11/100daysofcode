@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Are you faster than binary search?</h1>
+    <p> a random array is generated and a random value of the index is selected , while it tells you if your guess is high or low binary search happens in background can you guess better than binary?</p><hr>
+    <label>enter the length of array:-</label>
+    <input type="number" id="length">
+    <button type="button" onclick="setarray()">Submit</button><br>
+    <strong id="array"></strong><br>
+    <label>your guess</label>
+    <input type="number" id="guess"><button type="button" onclick="check()">Submit</button>	
+    <br>
+    <div id="message"></div>			
+    <script>
+        var arr=[];
+        var low = 0,high,x,mid;
+        var countg=0,countb=1;
+        var flag=false;
+        var message;
+        function check(){
+            if (flag==false){
+                console.log("flag condi");
+                flag=bsearch(arr, x, low, high);
+            }
+            countg++;
+            let guess=document.getElementById("guess").value;
+            if(x==guess){
+                console.log("check condi");
+                if(countg<countb || flag==false){
+                    message="congratulations you have beaten the binary search";
+                }
+                else if(countb<countg && flag==true){
+                    message="binary search takes the lead this round, try again by submitting another length";
+                }
+                else{
+                    message="you are a binary bot ;)"
+                }
+                document.getElementById("message").innerHTML=message;
+            }
+            else{
+                console.log("check condi");
+                message = (x<guess)? "higher" : "lower";
+                document.getElementById("message").innerHTML=`your number is ${message} than the chosen number`;
+            }
+        }
+        function bsearch(arr, x, low, high) {
+            flag=false;
+            console.log("binary");
+            if (low > high) return false ;
+            mid=Math.floor((low + high)/2);
+            if (arr[mid]===x) return true;
+            if(arr[mid] > x){
+                countb++;
+                console.log("high",high);
+                high = mid-1;
+                console.log("high",high);
+                return false
+            }
+            else{
+                countb++;
+                console.log("low",low);
+                low = mid+1;
+                console.log("low",low);
+                return false
+            }
+        };
+        function setarray(){
+            alert("srar");
+            const arrai = [];
+            let len = document.getElementById("length").value;
+            for (let index = 0; index < len; index++) {
+                let i = Math.floor((Math.random() * 1000) + 1);
+                arrai.push(i);
+            }
+            arrai.sort(function(a, b){return a - b});
+            document.getElementById("array").innerHTML=`The array is :-[${arrai}]`;
+            arr=arrai;
+            high= len-1;
+            x=arrai[Math.floor(Math.random() * len)];
+        }
+        </script>
+</body>
+</html>
