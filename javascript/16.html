@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head><style>
+    div{
+        background-color: white;
+        color: black;
+        border: 2px solid green;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: none;
+    }
+</style>
+
+<body style="background-color: aqua; font-family: Lucida Handwriting;">
+    <label for="curr">enter currency:-</label>
+    <select id="curr" name="curr">
+        <option value="INR">Indian rupee</option>
+        <option value="USD">U.S. dollar</option>
+        <option value="EUR">Euro</option>
+        <option value="CHF">Swiss franc</option>
+        <option value="GBP">Sterling</option>
+        <option value="JPY">Japanese yen</option>
+        <option value="CAD">Canadian dollar</option>
+        <option value="AUD">Australian dollar</option>
+        <option value="PHP">Philippine peso</option>
+        <option value="SGD">Singapore dollar</option>
+    </select>
+    <label for="currto">convert to:-</label>
+    <select id="currto" name="currto">
+        <option value="USD">U.S. dollar</option>
+        <option value="EUR">Euro</option>
+        <option value="CHF">Swiss franc</option>
+        <option value="GBP">Sterling</option>
+        <option value="JPY">Japanese yen</option>
+        <option value="CAD">Canadian dollar</option>
+        <option value="AUD">Australian dollar</option>
+        <option value="PHP">Philippine peso</option>
+        <option value="INR">Indian rupee</option>
+        <option value="SGD">Singapore dollar</option>
+    </select>
+    <label id="value">enter amount:-</label><input type="number" id="value2">
+    <button type="button" onclick="conversion()">click to convert</button>
+    <div id="converted"></div>
+</body>
+<script>
+    const currencyconv= new Map([
+    ["USD", 81.52],
+    ["EUR", 88.63],
+    ["CHF", 88.51],
+    ["GBP", 101.08],
+    ["JPY", 0.63],
+    ["CAD", 61.11],
+    ["AUD", 58.29],
+    ["PHP", 1.5],
+    ["INR", 1],
+    ["SGD", 62.06]
+    ]);
+    
+
+    function conversion(){
+        let currencyA = document.getElementById("curr").value;
+        let currencyB = document.getElementById("currto").value;
+        let amount = document.getElementById("value2").value;
+        currencyA = (amount/currencyconv.get(currencyB))*currencyconv.get(currencyA);
+        currencyA = Math.round((currencyA)*1000)/1000;
+        document.getElementById("converted").style.display="block";
+        document.getElementById("converted").innerHTML=` your converted amount becomes ${currencyA} ${currencyB} `;
+    }
+</script>
+</html>
