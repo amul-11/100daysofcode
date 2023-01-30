@@ -1,0 +1,15 @@
+var n = 4;
+    const a =[0,1,1,0];
+    if (n<3){
+        console.log(a[n]);
+    }
+    else{
+        while(n>2){
+            a[3]=a[0]+a[1]+a[2];
+            a[0]=a[1];
+            a[1]=a[2];
+            a[2]=a[3];
+            n--;
+            if(n==2){console.log(a[3]);}
+        }
+    }
